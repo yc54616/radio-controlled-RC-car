@@ -1,0 +1,74 @@
+<!doctype html>
+ 	<html lang="en">
+ 	<head>
+ 	<!-- Required meta tags -->
+ 	<meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 	<!-- Bootstrap CSS -->
+ 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+ 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<title>Live Streaming Demonstration</title>
+ 	</head>
+	<script> 
+		function UP(){
+			$.ajax({
+				type: "POST", 
+				url: "/key", 
+				data: {
+					key : 'UP'
+				}, 
+			}) 
+		}
+		function LEFT(){
+			$.ajax({
+				type: "POST", 
+				url: "/key", 
+				data: {
+					key : 'LEFT'
+				}, 
+			}) 
+		}
+		function DOWN(){
+			$.ajax({
+				type: "POST", 
+				url: "/key", 
+				data: {
+					key : 'DOWN'
+				}, 
+			}) 
+		}
+		function RIGHT(){
+			$.ajax({
+				type: "POST", 
+				url: "/key", 
+				data: {
+					key : 'RIGHT'
+				}, 
+			}) 
+		}
+	</script>
+
+ 	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2">
+					<h3 class="mt-5">Live Streaming</h3>
+					<img src="{{ url_for('video_feed') }}" width="100%" class="card">
+					<p></p>
+					<blockquote class="blockquote text-center">
+						<div class="btn-group-toggle">
+							<button type="button" class="btn btn-secondary btn-lg" onclick="UP()">UP</button>
+						</div>
+						<p></p>
+						<div class="btn-group btn-group-toggle">
+							<button type="button" class="btn btn-secondary btn-lg" onclick="LEFT()">LEFT</button>
+							<button type="button" class="btn btn-secondary btn-lg" onclick="DOWN()">DOWN</button>
+							<button type="button" class="btn btn-secondary btn-lg" onclick="RIGHT()">RIGHT</button>
+						</div>
+					</blockquote>					
+				</div>
+			</div>
+		</div>
+ 	</body>
+</html>
